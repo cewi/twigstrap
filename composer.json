@@ -36,5 +36,5 @@
 	    "psr-4": {
 	      "Twigstrap\\Test\\": "tests"
 	    }
-	  },
+	  }
 }
