@@ -1,5 +1,5 @@
 {
-    "name": "Cewi/twigstrap",
+    "name": "cewi/twigstrap",
     "description": "Use Twig Templates for Bootstrap 4 in CakePHP 3",
     "type": "cakephp-plugin",
     "keywords": [
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Cewi\\Twigstrap\\": "src"
+            "cewi\\twigstrap\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Cewi\\Twigstrap\\Test\\": "tests",
-            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+            "cewi\\twigstrap\\test\\": "tests",
+            "cake\\test\\": "./vendor/cakephp/cakephp/tests"
         }
     }
 }
