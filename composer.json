@@ -20,7 +20,6 @@
         "source": "https://github.com/cewi/twigstrap"
     },
     "require": {
-        "php": ">=5.4",
         "cakephp/plugin-installer": "*",
         "cakephp/cakephp": "~3.4",
         "wyrihaximus/twig-view": "^4.0"
@@ -28,15 +27,14 @@
     "require-dev": {
         "phpunit/phpunit": "*"
     },
-    "autoload": {
-        "psr-4": {
-            "cewi\\twigstrap\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "cewi\\twigstrap\\test\\": "tests",
-            "cake\\test\\": "./vendor/cakephp/cakephp/tests"
-        }
-    }
+	"autoload": {
+	    "psr-4": {
+	      "Twigstrap\\": "src"
+	    }
+	  },
+	  "autoload-dev": {
+	    "psr-4": {
+	      "Twigstrap\\Test\\": "tests"
+	    }
+	  },
 }

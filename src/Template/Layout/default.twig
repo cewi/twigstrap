@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ Html.charset()|raw }}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>
+            {{ _view.fetch('title')|raw }}
+        </title>
+
+        {{ Html.meta('icon')|raw }}
+
+        {{ Html.css('app.css')|raw }}
+
+        {{ _view.fetch('meta')|raw }}
+        {{ _view.fetch('css')|raw }}
+
+    </head>
+    <body>
+        <header>
+            {{ _view.fetch('header')|raw }}
+        </header>
+
+        {{ Flash.render()|raw }}
+
+        <section class="container-fluid">
+
+            <h1>{{ _view.fetch('title')|raw }}</h1>
+            <hr/>
+
+            {{ _view.fetch('content')|raw }}
+
+        </section>
+
+        <footer>
+            {{ _view.fetch('footer')|raw }}
+        </footer>
+        {{ Html.script('app.js')|raw}}
+        {{ _view.fetch('script')|raw }}
+    </body>
+</html>
