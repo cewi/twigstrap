@@ -1,6 +1,6 @@
 {
     "name": "Cewi/twigstrap",
-    "description": "Use Twig Templates for Bottstrap4 in CakePHP 3",
+    "description": "Use Twig Templates for Bootstrap 4 in CakePHP 3",
     "type": "cakephp-plugin",
     "keywords": [
         "cakephp",
