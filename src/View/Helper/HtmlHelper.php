@@ -1,5 +1,5 @@
 <?php
-namespace BootstrapUI\View\Helper;
+namespace Twigstrap\View\Helper;
 
 class HtmlHelper extends \Cake\View\Helper\HtmlHelper
 {

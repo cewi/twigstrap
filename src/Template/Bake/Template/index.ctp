@@ -1,6 +1,6 @@
 <%
 /**
-* This file is part of TwigView.
+* This file is part of TwigstrapView.
 *
 ** (c) 2017 Cornelius Wichmann
 *

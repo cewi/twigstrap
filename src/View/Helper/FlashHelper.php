@@ -1,6 +1,6 @@
 <?php
 
-namespace BootstrapUI\View\Helper;
+namespace Twigstrap\View\Helper;
 
 use Cake\View\Helper;
 

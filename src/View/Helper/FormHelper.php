@@ -1,6 +1,6 @@
 <?php
 
-namespace BootstrapUI\View\Helper;
+namespace Twigstrap\View\Helper;
 
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Utility\Hash;
@@ -75,11 +75,11 @@ class FormHelper extends Helper
      * @var array
      */
     protected $_widgets = [
-        'button' => 'BootstrapUI\View\Widget\ButtonWidget',
-        'radio' => ['BootstrapUI\View\Widget\RadioWidget', 'nestingLabel'],
-        'select' => 'BootstrapUI\View\Widget\SelectBoxWidget',
-        'textarea' => 'BootstrapUI\View\Widget\TextareaWidget',
-        '_default' => 'BootstrapUI\View\Widget\BasicWidget',
+        'button' => 'Twigstrap\View\Widget\ButtonWidget',
+        'radio' => ['Twigstrap\View\Widget\RadioWidget', 'nestingLabel'],
+        'select' => 'Twigstrap\View\Widget\SelectBoxWidget',
+        'textarea' => 'Twigstrap\View\Widget\TextareaWidget',
+        '_default' => 'Twigstrap\View\Widget\BasicWidget',
     ];
 
     /**

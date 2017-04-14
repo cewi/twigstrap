@@ -1,8 +1,8 @@
 <?php
 
-namespace BootstrapUI\View\Widget;
+namespace Twigstrap\View\Widget;
 
-use BootstrapUI\View\Helper\OptionsAwareTrait;
+use Twigstrap\View\Helper\OptionsAwareTrait;
 use Cake\View\Form\ContextInterface;
 
 class ButtonWidget extends \Cake\View\Widget\ButtonWidget

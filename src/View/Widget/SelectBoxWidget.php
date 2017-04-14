@@ -1,7 +1,7 @@
 <?php
-namespace BootstrapUI\View\Widget;
+namespace Twigstrap\View\Widget;
 
-use BootstrapUI\View\Widget\InputgroupTrait;
+use Twigstrap\View\Widget\InputgroupTrait;
 use Cake\View\Form\ContextInterface;
 
 class SelectBoxWidget extends \Cake\View\Widget\SelectBoxWidget
