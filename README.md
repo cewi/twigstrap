@@ -31,6 +31,14 @@ Load the Plugin in bootstrap.php:
 Plugin::load('cewi/twigstrap');
 ```
 
+you must load TwigView Plugin, too:
+
+```
+Plugin::load('WyriHaximus/TwigView', [
+    'bootstrap' => true,
+]);
+```
+
 ### use view class
 
 Instead of extending from the View let AppView extend TwigstrapView (which in turn extends WyriHaximus/TwigView):
