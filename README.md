@@ -1,8 +1,54 @@
 # twigstrap
-use Twig templates for Bootstrap 4 in CakePHP 3
 
-Work in Progress! Don't use for now
+using Twig templates for [Bootstrap 4] (https://v4-alpha.getbootstrap.com/) in [CakePHP 3] (https://cakephp.org)
 
-uses WyriHaximus/TwigView and https://v4-alpha.getbootstrap.com/
+Pulls in  [WyriHaximus/TwigView] (https://github.com/WyriHaximus/TwigView) for parsing twig files.  
 
-Ideas and most code taken from friendsofcake/BootstrapUI  
+Ideas and most code for Helpers taken from [Friendsofcake/BootstrapUI] (https://github.com/FriendsOfCake/bootstrap-ui)
+
+## This is work in Progress. Don't use it for now!
+
+# Using:
+
+add 
+
+    "repositories": [
+             {
+                "type": "vcs",
+                "url": "https://github.com/cewi/twigstrap"
+            }
+        ] 
+        
+ to your composer.json. Then in console:
+
+```
+composer require cewi/twigstrap:dev-master
+```
+
+Load the Plugin in bootstrap.php:
+
+```
+	Plugin::load('cewi/twigstrap');
+```
+
+# Use View class
+
+Instead of extending from the View let AppView extend TwigView:
+
+```
+namespace App\View;
+
+use Twigstrap\View\TwigstrapView;
+
+class AppView extends TwigstrapView
+{
+}
+```
+
+# Baking views:
+```
+ ./bin/cake bake twig_template {Model} -t Twigstrap
+```
+
+
+
