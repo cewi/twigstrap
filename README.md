@@ -28,12 +28,12 @@ composer require cewi/twigstrap:dev-master
 Load the Plugin in bootstrap.php:
 
 ```
-	Plugin::load('cewi/twigstrap');
+Plugin::load('cewi/twigstrap');
 ```
 
 ### use view class
 
-Instead of extending from the View let AppView extend TwigView:
+Instead of extending from the View let AppView extend TwigstrapView (which in turn extends WyriHaximus/TwigView):
 
 ```
 namespace App\View;
