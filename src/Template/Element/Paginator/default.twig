@@ -1,0 +1,10 @@
+<nav aria-label="Page navigation">            
+            <ul class="pagination">
+                {{ Paginator.prev('< ' ~ __('previous'))|raw }}
+                {{ Paginator.numbers()|raw }}
+                {{ Paginator.next(__('next') ~ ' >')|raw }}
+            </ul>
+            {% if Paginator.total > 10 %}
+            <p>{{ Paginator.counter(__('{{page}} of {{pages}}'))|raw }}</p>
+            {% endif %}
+</nav>

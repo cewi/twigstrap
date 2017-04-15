@@ -24,7 +24,7 @@ trait OptionsAwareTrait
      * @var array
      */
     public $buttonClassAliases = [
-        'default' => 'btn-default',
+        'default' => 'btn-secondary',
         'success' => 'btn-success',
         'warning' => 'btn-warning',
         'danger' => 'btn-danger',
@@ -43,7 +43,7 @@ trait OptionsAwareTrait
         if ($this->hasAnyClass($this->buttonClasses, $data)) {
             $data = $this->injectClasses(['btn'], $data);
         } else {
-            $data = $this->injectClasses(['btn', 'btn-default'], $data);
+            $data = $this->injectClasses(['btn', 'btn-secondary'], $data);
         }
 
         return $this->renameClasses($this->buttonClassAliases, $data);

@@ -1,90 +1,71 @@
 <%
+/**
+ * This file is part of Twigstrap
+ *
+ ** (c) 2017 cewi
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+ 
+ use Cake\Utility\Inflector;
 
-use Cake\Utility\Inflector;
+ $fields = collection($fields)
+     ->filter(function($field) use ($schema) {
+         return $schema->columnType($field) !== 'binary';
+     });
 
-$fields = collection($fields)
-        ->filter(function($field) use ($schema) {
-    return $schema->columnType($field) !== 'binary';
-});
-%>
-<?php
-$this->extend('../Layout/TwitterBootstrap/dashboard');
-<% foreach (['tb_actions', 'tb_sidebar'] as $block): %>
+ if (isset($modelObject) && $modelObject->behaviors()->has('Tree')) {
+     $fields = $fields->reject(function ($field) {
+         return $field === 'lft' || $field === 'rght';
+     });
+ }
+ %>
 
-$this->start('<%= $block %>');
-?>
-<% if ('tb_sidebar' === $block): %>
-<ul class="nav nav-sidebar">
-<% endif; %>
-<% if (strpos($action, 'add') === false): %>
-    <li><?=
-    $this->Form->postLink(
-        __('Delete'),
-        ['action' => 'delete', $<%= $singularVar
-        %>-><%= $primaryKey[0] %>],
-        ['confirm' => __('Are you sure you want to delete # {0}?', $<%= $singularVar %>-><%= $primaryKey[0] %>)]
-    )
-    ?>
-    </li>
-<% endif; %>
-    <li><?= $this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index']) ?></li>
+<div class="<%= $pluralVar %> form">
+    {{ Form.create(<%= $singularVar %>)|raw }}
+    <fieldset>
+        <legend>{{ __('<%= Inflector::humanize($action) %> {0}', [__('<%= $singularHumanName %>')]) }}</legend>
 <%
-$done = [];
-foreach ($associations as $type => $data) {
-    foreach ($data as $alias => $details) {
-        if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
-            %>
-    <li><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) %> </li>
-    <li><?= $this->Html->link(__('New <%= $this->_singularHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) %> </li>
-<%
-            $done[] = $details['controller'];
-        }
-    }
-}
-if ('tb_sidebar' === $block):
+        foreach ($fields as $field) {
+            if (in_array($field, $primaryKey)) {
+                continue;
+            }
+            if (isset($keyFields[$field])) {
+                $fieldData = $schema->column($field);
+                if (!empty($fieldData['null'])) {
 %>
-</ul>
-<% endif; %>
-<?php
-$this->end();
-<% endforeach; %>
-?>
-<?= $this->Form->create($<%= $singularVar %>); ?>
-<fieldset>
-    <legend><?= __('<%= Inflector::humanize($action) %> {0}', ['<%= $singularHumanName %>']) ?></legend>
-    <?php
+        {{ Form.input('<%= $field %>', {'options' : <%= $keyFields[$field] %>, 'empty' : true})|raw }}
 <%
-    foreach ($fields as $field) {
-        if (in_array($field, $primaryKey)) {
-            continue;
-        }
-        if (isset($keyFields[$field])) {
-            %>
-    echo $this->Form->input('<%= $field %>', ['options' => $<%= $keyFields[$field] %>]);
-<%
-            continue;
-        }
-        if (!in_array($field, ['created', 'modified', 'updated'])) {
-            %>
-    echo $this->Form->input('<%= $field %>');
-<%
-        }
-    }
-    if (!empty($associations['BelongsToMany'])) {
-        foreach ($associations['BelongsToMany'] as $assocName => $assocData) {
-            %>
-    echo $this->Form->input('<%= $assocData['property'] %>._ids', ['options' => $<%= $assocData['variable'] %>]);
-<%
-        }
-    }
-    %>
-    ?>
-</fieldset>
-<%
-if (strpos($action, 'add') === false)
-    $submitButtonTitle = '__("Save")';
-else
-    $submitButtonTitle = '__("Add")';
+                } else {
 %>
-<?= $this->Form->button(<% echo $submitButtonTitle;%>); ?>
-<?= $this->Form->end() ?>
+        {{ Form.input('<%= $field %>', {'options' : <%= $keyFields[$field] %>})|raw }}
+<%
+                }
+                continue;
+            }
+            if (!in_array($field, ['created', 'modified', 'updated'])) {
+                $fieldData = $schema->column($field);
+                if (in_array($fieldData['type'], ['date', 'datetime', 'time']) && (!empty($fieldData['null']))) {
+%>
+        {{ Form.input('<%= $field %>', {'empty' : true})|raw }}
+<%
+                } else {
+%>
+        {{ Form.input('<%= $field %>')|raw }}
+<%
+                }
+            }
+        }
+        if (!empty($associations['BelongsToMany'])) {
+            foreach ($associations['BelongsToMany'] as $assocName => $assocData) {
+%>
+        {{ Form.input('<%= $assocData['property'] %>._ids', {'options' : <%= $assocData['variable'] %>})|raw }}
+<%
+            }
+        }
+%>
+    </fieldset>
+    {{ Form.button(__('Submit'))|raw }}
+    {{ Form.end()|raw }}
+</div>

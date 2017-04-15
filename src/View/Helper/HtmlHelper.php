@@ -50,7 +50,7 @@ class HtmlHelper extends \Cake\View\Helper\HtmlHelper
     }
 
     /**
-     * Returns Bootstrap icon markup. By default, uses `<I>` and `glypicon`.
+     * Returns Fontawsome icon markup. By default, uses `<I>` and `fa`.
      *
      * @param string $name Name of icon (i.e. search, leaf, etc.).
      * @param array $options Additional HTML attributes.
@@ -60,7 +60,7 @@ class HtmlHelper extends \Cake\View\Helper\HtmlHelper
     {
         $options += [
             'tag' => 'i',
-            'iconSet' => 'glyphicon',
+            'iconSet' => 'fa',
             'class' => null,
         ];
 
@@ -91,7 +91,7 @@ class HtmlHelper extends \Cake\View\Helper\HtmlHelper
             'type' => 'default',
         ];
 
-        $classes = ['label', 'label-' . $options['type']];
+        $classes = ['tag', 'tag-' . $options['type']];
         $tag = $options['tag'];
         unset($options['tag'], $options['type']);
 
