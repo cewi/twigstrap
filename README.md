@@ -1,10 +1,10 @@
 # twigstrap
 
-using Twig templates for [Bootstrap 4] (https://v4-alpha.getbootstrap.com/) in [CakePHP 3] (https://cakephp.org)
+using Twig templates for [Bootstrap 4](https://v4-alpha.getbootstrap.com/) in [CakePHP 3](https://cakephp.org)
 
-Pulls in  [WyriHaximus/TwigView] (https://github.com/WyriHaximus/TwigView) for parsing twig files.  
+Pulls in  [WyriHaximus/TwigView](https://github.com/WyriHaximus/TwigView) for parsing twig files.  
 
-Ideas and most code for Helpers taken from [Friendsofcake/BootstrapUI] (https://github.com/FriendsOfCake/bootstrap-ui)
+Ideas and most code for Helpers taken from [Friendsofcake/BootstrapUI](https://github.com/FriendsOfCake/bootstrap-ui)
 
 ## This is work in Progress. Don't use it for now!
 
