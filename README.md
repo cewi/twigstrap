@@ -8,7 +8,7 @@ Ideas and most code for Helpers taken from [Friendsofcake/BootstrapUI] (https://
 
 ## This is work in Progress. Don't use it for now!
 
-# Using:
+### adding Plugin
 
 add 
 
@@ -31,7 +31,7 @@ Load the Plugin in bootstrap.php:
 	Plugin::load('cewi/twigstrap');
 ```
 
-# Use View class
+### use view class
 
 Instead of extending from the View let AppView extend TwigView:
 
@@ -45,7 +45,7 @@ class AppView extends TwigstrapView
 }
 ```
 
-# Baking views:
+### baking views:
 ```
  ./bin/cake bake twig_template {Model} -t Twigstrap
 ```
