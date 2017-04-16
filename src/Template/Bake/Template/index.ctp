@@ -47,7 +47,7 @@ $fields = $fields->take($indexColumns);
 
 <div class="<%= $pluralVar %> index">
 	<table class="table table-striped">
-		<thead>
+		<thead class="thead-inverse">
 			<tr>
 				<% foreach ($fields as $field): %>
 				<th>{{ Paginator.sort('<%= $field %>')|raw }}</th>

@@ -139,12 +139,15 @@ foreach ($relations as $alias => $details):
         <h4>{{ __('Related <%= $otherPluralHumanName %>') }}</h4>
         {% if (<%= $singularVar %>.<%= $details['property'] %> is not empty) %}
         <table class="table table-striped">
+			<thead class="thead-inverse">
             <tr>
 <% foreach ($details['fields'] as $field): %>
                 <th>{{ __('<%= Inflector::humanize($field) %>') }}</th>
 <% endforeach; %>
                 <th class="actions">{{ __('Actions') }}</th>
             </tr>
+		</thead>
+		<tbody>
             {% for <%= $otherSingularVar %> in <%= $singularVar %>.<%= $details['property'] %> %}
             <tr>
             <%- foreach ($details['fields'] as $field): %>
@@ -160,6 +163,7 @@ foreach ($relations as $alias => $details):
 			</td>
             </tr>
             {% endfor %}
+		</tbody>	
         </table>
         {% endif %}
     </div>
