@@ -78,7 +78,7 @@ $pk = "$singularVar.{$primaryKey[0]}";
 	
 <div class="<%= $pluralVar %> view">
     <h3>{{ <%= $singularVar %>.<%= $displayField %>|h }}</h3>
-       <table class="table table-striped" cellpadding="0" cellspacing="0">
+       <table class="table table-striped">
    <% if ($groupedFields['string']) : %>
    <% foreach ($groupedFields['string'] as $field) : %>
            <tr>
@@ -106,8 +106,8 @@ $pk = "$singularVar.{$primaryKey[0]}";
    <% if ($groupedFields['date']) : %>
    <% foreach ($groupedFields['date'] as $field) : %>
            <tr>
-               <td><%= "<%= __('" . Inflector::humanize($field) . "') %>" %></td>
-               <td>{{ <%= $singularVar %>-><%= $field %> }}</td>
+               <td>{{ __('<%= Inflector::humanize($field) %>') }}</td>
+               <td>{{ <%= $singularVar %>.<%= $field %> }}</td>
            </tr>
    <% endforeach; %>
    <% endif; %>
